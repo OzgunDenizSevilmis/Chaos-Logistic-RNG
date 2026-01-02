@@ -1,0 +1,42 @@
+ALGORİTMA: Chaos-Logistic-RNG
+BAŞLAT
+
+    GİRDİ: Üretilecek Bit Sayısı (N)
+    
+    // Sabitler ve Başlangıç Değerleri
+    SABİT r = 3.999999              // Kaos Parametresi (Kaotik bölge için 4'e yakın olmalı)
+    DEĞİŞKEN x = Sistem_Zamanı()    // Mikrosaniye cinsinden şimdiki zaman (Seed)
+    
+    // Seed (Tohum) Kontrolü
+    x = x - TAMSAYI(x)              // Sadece ondalık kısmı al (0 ile 1 arası)
+    EĞER x == 0 VEYA x == 1 İSE:
+        x = 0.54321                 // Kilitlenmeyi önlemek için güvenli değer ata
+    
+    DEĞİŞKEN bit_listesi = []       // Boş liste oluştur
+    DEĞİŞKEN i = 0                  // Sayaç
+
+    // Ana Döngü
+    DÖNGÜ (i < N) OLDUĞU SÜRECE:
+    
+        // Adım 1: Lojistik Harita Denklemi (Kaos Teorisi)
+        x = r * x * (1 - x)
+        
+        // Adım 2: Bit Çıkarımı (Extraction)
+        // Sayıyı 10^14 ile çarpıp tam kısmını alarak virgülden sonraki
+        // yüksek entropili basamakları yakala.
+        genisletilmis_deger = TAMSAYI(x * 100000000000000)
+        
+        // Adım 3: Modulo 2 ile 0 veya 1 elde et
+        bit = genisletilmis_deger MOD 2
+        
+        // Listeye Ekle
+        bit_listesi.EKLE(bit)
+        
+        // Sayacı Artır
+        i = i + 1
+        
+    DÖNGÜ BİTİR
+
+    ÇIKTI: bit_listesi
+
+BİTİR
