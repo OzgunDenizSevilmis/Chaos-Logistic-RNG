@@ -1,3 +1,6 @@
+### 3. Algoritma Akış Şeması (Flowchart)
+
+```mermaid
 graph TD
     A([BAŞLA]) --> B[/Girdi: Bit Sayısı N/]
     B --> C[Sabitler: r = 3.999999]
@@ -16,3 +19,4 @@ graph TD
     style A fill:#f9f,stroke:#333,stroke-width:2px
     style M fill:#f9f,stroke:#333,stroke-width:2px
     style F fill:#ff9,stroke:#333,stroke-width:2px
+```
